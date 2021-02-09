@@ -93,14 +93,21 @@ export default {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  overflow: hidden;
 }
 .branding-ready {
     background-color: #2E3191;
+    overflow: hidden;
 }
 .branding-not-ready {
     background-color: #BE1E2D;
+    overflow: hidden;
 }
 .branding-success {
     background-color: #006624;
+    overflow: hidden;
+}
+html, body{
+    overflow: hidden;
 }
 </style>
