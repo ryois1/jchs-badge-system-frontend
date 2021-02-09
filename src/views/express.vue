@@ -48,7 +48,6 @@ export default {
             scan_data.append('station_id', station_id);
             scan_data.append('station_type', station_type);
             scan_data.append('station_name', station_name);
-            console.log({ station_id: station_id, entry_method: entry_method, barcode_data: barcode_data });
             var axios = require("axios");
             axios({
                 method: 'post',
@@ -62,7 +61,7 @@ export default {
                 if(response.data.error){
                     document.body.classList.add('branding-not-ready');
                     vm.STATUS_TEXT = response.data.errorMsg;
-                    console.log(response.data.errorMsg);
+                    console.error(response.data.errorMsg);
                     setTimeout(() => {  vm.STATUS_TEXT = 'Please scan your badge.'; vm.RESULT_NAME = null; vm.RESULT_CLASS = null; document.body.classList.remove('branding-not-ready'); document.body.classList.add('branding-ready');}, 2000);
                 }
                 if(!response.data.error && response.data.authorized){
@@ -72,11 +71,9 @@ export default {
                     vm.RESULT_CLASS = `Class name: ${response.data.classname}`;
                     setTimeout(() => {  vm.STATUS_TEXT = 'Please scan your badge.'; vm.RESULT_NAME = null; vm.RESULT_CLASS = null; document.body.classList.remove('branding-success'); document.body.classList.add('branding-ready');}, 2000);
                 }
-            console.log(response);
             })
             .catch(function (response) {
-                //handle error
-            console.log(response);
+                console.error(response);
             });
         }
     },

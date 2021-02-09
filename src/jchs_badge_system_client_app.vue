@@ -1,16 +1,15 @@
 <template>
-<div id="jchs-badge-system-client-app">
+<div @contextmenu="handler($event)" id="jchs-badge-system-client-app">
     <globalNav></globalNav>
     <router-view></router-view>
     <heartbeat v-if="ifNotSetup()"></heartbeat>
-    <gloablFooter v-if="ifNotSetup()"></gloablFooter>
+    <globalFooter v-if="ifNotSetup()"></globalFooter>
 </div>
 </template>
-
 <script>
 import globalNav from "./components/global/navbar.vue";
 import heartbeat from "./components/global/heartbeat.vue";
-import gloablFooter from "./components/global/footer.vue";
+import globalFooter from "./components/global/footer.vue";
 export default {
   name: "jchs-badge-system",
   data: function () {
@@ -25,6 +24,9 @@ export default {
     }
   },
   methods: {
+    handler: function(e) {
+      e.preventDefault();
+    },
     ifNotSetup() {
       return this.$router.history.current["path"] != "/setup";
     },
@@ -68,7 +70,7 @@ export default {
   components: {
     globalNav,
     heartbeat,
-    gloablFooter,
+    globalFooter,
   },
   created() {
     const vm = this;
@@ -94,6 +96,7 @@ export default {
   -ms-user-select: none;
   user-select: none;
   overflow: hidden;
+  height: 100vh;
 }
 .branding-ready {
     background-color: #2E3191;
@@ -109,5 +112,6 @@ export default {
 }
 html, body{
     overflow: hidden;
+    height: 100vh;
 }
 </style>

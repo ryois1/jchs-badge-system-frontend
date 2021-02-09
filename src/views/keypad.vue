@@ -63,7 +63,6 @@ export default {
             scan_data.append('entryMethod', entry_method);
             scan_data.append('studentid', entry);
             scan_data.append('station_type', station_type);
-            console.log({ station_id: station_id, entry_method: entry_method, entry: entry });
             var axios = require("axios");
             axios({
                 method: 'post',
@@ -77,7 +76,7 @@ export default {
                     document.body.classList.add('branding-not-ready');
                     vm.STATUS_TEXT = null;
                     vm.RESULT_NAME = response.data.errorMsg;
-                    console.log(response.data.errorMsg);
+                    console.error(response.data.errorMsg);
                     setTimeout(() => {  vm.STATUS_TEXT = 'Please input your student ID with the keypad.'; document.body.classList.remove('branding-not-ready');vm.RESULT_NAME = null; vm.RESULT_CLASS = null;}, 2000);
                 }
                 if(!response.data.error && response.data.authorized){
@@ -87,11 +86,9 @@ export default {
                     vm.RESULT_CLASS = `Class name: ${response.data.classname}`;
                     setTimeout(() => {  vm.STATUS_TEXT = 'Please input your student ID with the keypad.'; document.body.classList.remove('branding-success'); vm.RESULT_NAME = null; vm.RESULT_CLASS = null; vm.$router.push({ path: 'scan' });}, 2000);
                 }
-            console.log(response);
             })
             .catch(function (response) {
-                //handle error
-            console.log(response);
+                console.error(response);
             });
         }
     },
@@ -109,5 +106,3 @@ export default {
   },
 };
 </script>
-<style scoped>
-</style>

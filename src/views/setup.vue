@@ -60,10 +60,9 @@ export default {
             .then(function (response) {
                 if(response.data.error){
                     vm.STATUS_TEXT = response.data.errorMsg;
-                    console.log(response.data.errorMsg);
+                    console.error(response.data.errorMsg);
                 }
                 if(!response.data.error){
-                    console.log(response.data);
                     vm.STATUS_TEXT = "Successfully setup this station...redirecting";
                     localStorage.setItem('STATION_ID', response.data.station_id);
                     localStorage.setItem('STATION_NAME', response.data.station_name);
@@ -77,8 +76,7 @@ export default {
                 }
             })
             .catch(function (response) {
-                //handle error
-            console.log(response);
+                console.error(response);
             });
         }
     },

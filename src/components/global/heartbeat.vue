@@ -26,7 +26,7 @@ export default {
             })
             .then(function (response) {
                 if(response.data.error){
-                    console.log(response.data.errorMsg);
+                    console.error(response.data.errorMsg);
                 }
                 if(!response.data.error){
                     if(response.data.STATION_UPDATE){
@@ -38,7 +38,7 @@ export default {
                 }
             })
             .catch(function (response) {
-            console.log(response);
+                console.error(response);
             });
         },
      },

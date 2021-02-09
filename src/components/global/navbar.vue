@@ -32,7 +32,4 @@ export default {
 .navbar.navbar-dark.bg-dark{
     background-color: #000000!important;
 }
-.name{
-    color: #ffffff!important;
-}
 </style>
