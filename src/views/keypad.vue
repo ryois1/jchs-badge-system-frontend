@@ -58,11 +58,13 @@ export default {
             const station_type = this.station_type;
             const entry_method = this.entry_method;
             const entry = this.class_id + this.student_id;
+            const station_name = this.station_name;
             let scan_data = new FormData();
             scan_data.append('station-id', station_id);
             scan_data.append('entryMethod', entry_method);
             scan_data.append('studentid', entry);
             scan_data.append('station_type', station_type);
+            scan_data.append('station_name', station_name);
             var axios = require("axios");
             axios({
                 method: 'post',
