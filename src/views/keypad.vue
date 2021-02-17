@@ -93,6 +93,7 @@ export default {
         }
     },
   created() {
+    document.body.classList.remove('branding-ready');
     var axios = require("axios");
     const vm = this;
     axios

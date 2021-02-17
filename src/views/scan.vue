@@ -37,6 +37,7 @@ export default {
         },
         processForm: function() {
             const vm = this;
+            vm.$parent.showLoader = true;
             const station_id = this.station_id;
             const entry_method = this.entry_method;
             const barcode_data = this.barcode_data;
@@ -56,6 +57,7 @@ export default {
                 headers: {'Content-Type': 'multipart/form-data' }
             })
             .then(function (response) {
+                vm.$parent.showLoader = false;
                 document.body.classList.remove('branding-ready');
                 vm.barcode_data = '';
                 if(response.data.error){

@@ -1,9 +1,10 @@
 <template>
-<div @contextmenu="handler($event)" id="jchs-badge-system-client-app">
-    <globalNav></globalNav>
-    <router-view></router-view>
-    <heartbeat v-if="ifNotSetup()"></heartbeat>
-    <globalFooter v-if="ifNotSetup()"></globalFooter>
+<div :key="$route.fullPath" @contextmenu="handler($event)" id="jchs-badge-system-client-app">
+    <loader v-show="showLoader" object="#ffffff" color1="#ffffff" color2="#17fd3d" size="3" speed="1" bg="#141414" objectbg="#000000" opacity="85" name="spinning"></loader>
+    <globalNav :key="$route.fullPath"></globalNav>
+    <router-view :key="$route.fullPath"></router-view>
+    <heartbeat :key="$route.fullPath" v-if="ifNotSetup()"></heartbeat>
+    <globalFooter :key="$route.fullPath" v-if="ifNotSetup()"></globalFooter>
 </div>
 </template>
 <script>
@@ -19,8 +20,9 @@ export default {
       STATION_TYPE: null,
       API_BASE_URL: "https://jchs-badge-system.cf",
       API_VERSION: "???",
-      FRONTEND_VERSION: "1.0.3",
+      FRONTEND_VERSION: "1.0.8",
       STATION_IP: "???",
+      showLoader: true,
     }
   },
   methods: {
@@ -80,6 +82,10 @@ export default {
     vm.STATION_ID = retrievedStationID;
     const retrievedStationType = vm.getStoredStationType();
     vm.STATION_TYPE = retrievedStationType;
+  },
+  mounted(){
+    const vm = this;
+    setTimeout(() => vm.showLoader = false, 500);
   }
 }; 
 </script>
