@@ -5,3 +5,13 @@
   </b-jumbotron>
 </div>
 </template>
+<script>
+export default {
+    name: "404",
+    created() {
+        document.body.classList.remove('branding-ready');
+        document.body.classList.remove('branding-not-ready');
+        document.body.classList.remove('branding-success');
+    },
+};
+</script>

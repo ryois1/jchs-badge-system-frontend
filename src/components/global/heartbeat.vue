@@ -27,17 +27,20 @@ export default {
             .then(function (response) {
                 if(response.data.error){
                     console.error(response.data.errorMsg);
+                    vm.STATION_ONLINE = false;
                 }
                 if(!response.data.error){
                     if(response.data.STATION_UPDATE){
                         location.reload();
                     }
+                    vm.STATION_ONLINE = true;
                     vm.API_VERSION = response.data.API_VERSION;
                     vm.STATION_IP = response.data.STATION_IP;
                     return;
                 }
             })
             .catch(function (response) {
+                vm.STATION_ONLINE = false;
                 console.error(response);
             });
         },

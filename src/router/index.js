@@ -5,6 +5,7 @@ import setup from '../views/setup.vue';
 import scan from '../views/scan.vue';
 import keypad from '../views/keypad.vue';
 import express from '../views/express.vue';
+import offline from '../views/offline.vue';
 import pageNotFound from '../views/pageNotFound.vue';
 
 Vue.use(VueRouter);
@@ -12,7 +13,7 @@ Vue.use(VueRouter);
 const routes = [
     {
         path: '/',
-        name: 'Home',
+        name: 'home',
         component: home,
         meta: {
             title: 'Home',
@@ -54,7 +55,16 @@ const routes = [
           title: 'Express Lane',
           visible: true
       },
-  },
+    },
+    {
+      path: '/offline',
+      name: 'Offline',
+      component: offline,
+      meta: {
+          title: 'Station Offline',
+          visible: false
+      },
+    },
     {
       path: '*',
       name: '404 Not Found',

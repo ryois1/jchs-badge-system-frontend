@@ -23,6 +23,7 @@ export default {
       FRONTEND_VERSION: "1.0.11",
       STATION_IP: "???",
       showLoader: true,
+      STATION_ONLINE: null,
     }
   },
   methods: {
@@ -86,6 +87,19 @@ export default {
   mounted(){
     const vm = this;
     setTimeout(() => vm.showLoader = false, 500);
+  },
+  watch: {
+    STATION_ONLINE: function() {
+      if(!this.STATION_ONLINE){
+        if(this.$router.history.current["path"] != "/offline"){
+          this.$router.push({ path: '/offline' });
+        }
+      }else{
+        if(this.$router.history.current["path"] == "/offline"){
+          this.$router.push({ path: '/' });
+        }
+      }
+    }
   }
 }; 
 </script>
