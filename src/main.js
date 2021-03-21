@@ -8,11 +8,9 @@ import VueAxios from 'vue-axios';
 import * as Sentry from "@sentry/vue";
 import { Integrations } from "@sentry/tracing";
 import jchs_badge_system_client_app from './jchs_badge_system_client_app.vue';
-import loader from "vue-ui-preloader";
 
 Vue.use(VueAxios, axios);
 Vue.use(BootstrapVue);
-Vue.use(loader);
 
 Sentry.init({
   Vue,
@@ -22,6 +20,5 @@ Sentry.init({
 });
 new Vue({
   router,
-  loader:loader,
   render: h => h(jchs_badge_system_client_app),
 }).$mount('#app')

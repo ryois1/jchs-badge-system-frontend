@@ -1,6 +1,5 @@
 <template>
 <div :key="$route.fullPath" @contextmenu="handler($event)" id="jchs-badge-system-client-app">
-    <loader v-show="showLoader" object="#ffffff" color1="#ffffff" color2="#17fd3d" size="3" speed="1" bg="#141414" objectbg="#000000" opacity="85" name="spinning"></loader>
     <globalNav :key="$route.fullPath"></globalNav>
     <router-view :key="$route.fullPath"></router-view>
     <heartbeat :key="$route.fullPath" v-if="ifNotSetup()"></heartbeat>
