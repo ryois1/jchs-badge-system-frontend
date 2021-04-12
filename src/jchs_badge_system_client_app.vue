@@ -19,7 +19,7 @@ export default {
       STATION_TYPE: null,
       API_BASE_URL: "https://jchs-badge-system.cf",
       API_VERSION: "???",
-      FRONTEND_VERSION: "1.0.11",
+      FRONTEND_VERSION: "1.0.12",
       STATION_IP: "???",
       showLoader: true,
       STATION_ONLINE: null,
