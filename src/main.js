@@ -14,7 +14,7 @@ Vue.use(BootstrapVue);
 
 Sentry.init({
   Vue,
-  dsn: "https://d86eebde430543ac90e2dec845a9cdca@o358606.ingest.sentry.io/5626989",
+  dsn: "https://e353d9674b964497826a2a0511e2d3c3@sentry.ryois.net/8",
   integrations: [new Integrations.BrowserTracing()],
   tracesSampleRate: 1.0,
 });
