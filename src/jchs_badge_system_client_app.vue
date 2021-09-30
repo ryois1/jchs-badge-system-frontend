@@ -17,7 +17,7 @@ export default {
       STATION_NAME: null,
       STATION_ID: null,
       STATION_TYPE: null,
-      API_BASE_URL: "https://jchs-badge-system.cf",
+      API_BASE_URL: "https://badges.jchsprojects.com",
       API_VERSION: "???",
       FRONTEND_VERSION: "1.0.12",
       STATION_IP: "???",
